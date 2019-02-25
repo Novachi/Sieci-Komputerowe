@@ -80,6 +80,7 @@ ip a
 ifup
 ifdown
 nmcli
+systemctl stop firewalld
 
 -------------------------
 | Parametr | wartość | komentarz(opcionalny) |
