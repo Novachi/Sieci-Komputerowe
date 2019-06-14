@@ -1,3 +1,5 @@
+![alt text](https://github.com/Novachi/Sieci-Komputerowe/edit/master/zadanie-1/zadanie1.png "Rysunek")
+
 #### Ustalenie maski
 LAN1 : 255.255.254.0 (/23 - 510 Hostów )
 
