@@ -15,4 +15,4 @@ LAN2 : 172.22.160.0/19 (Z powodu tego że LAN1 zajmuje adresy na przestrzeni od 
 #### Ustawienie odpowiednich adresów dla interfejsów w PC0
 Aby to zrobić edytujemy plik /etc/network/interfaces w następujący sposób:
 
-![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC0.png "Rysunek2")
+![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC0.PNG "Rysunek2")
