@@ -12,7 +12,7 @@ LAN1 : 172.22.128.0/23
 
 LAN2 : 172.22.160.0/19 (Z powodu tego że LAN1 zajmuje adresy na przestrzeni od 172.22.128.1 musimy wziąć adresy z kolejnej puli dostępnych przy masce /19 adresów którą są adresy od 172.22.160.1 - 172.22.191.254)
 
-#### Ustawienie odpowiednich adresów i masek podsieci dla interfejsów
+#### Ustawienie odpowiednich adresów, masek podsieci oraz routingu dla interfejsów
 Aby to zrobić edytujemy plik /etc/network/interfaces w następujący sposób:
 
 ##### PC0
