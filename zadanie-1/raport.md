@@ -25,3 +25,13 @@ W PC0 włączamy także forwardowanie pakietów. W tym celu musimy edytować pli
 
 ##### PC2
 ![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC2.PNG "PC2")
+
+#### Dodanie reguły MASQUERADE w PC0 oraz ustawienie ładowanie zapisanych reguł po starcie systemu
+W PC0 dodajemy reguły:
+
+* iptables -t nat -A POSTROUTING -s 172.22.128.0/23 -o enp0s3 -j MASQUERADE
+* iptables -t nat -A POSTROUTING -s 172.22.160.0/19 -o enp0s3 -j MASQUERADE
+ 
+ oraz zapisujemy je w pliku /etc/iptables.up.rules poleceniem ipatables-save > /etc/iptables.up.rules
+ 
+ Następnie dodajemy wpis post-up iptables-restore < /etc/iptables.up.rules do pliku /etc/network/interfaces
