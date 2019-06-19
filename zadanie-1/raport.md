@@ -19,7 +19,7 @@ Aby to zrobić edytujemy plik /etc/network/interfaces w następujący sposób:
 ![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC0.PNG "PC0")
 
 ##### PC1
-![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC0.PNG "PC0")
+![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC1.PNG "PC1")
 
 ##### PC2
-![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC0.PNG "PC0")
+![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC2.PNG "PC2")
