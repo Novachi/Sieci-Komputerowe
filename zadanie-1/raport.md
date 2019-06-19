@@ -35,3 +35,11 @@ W PC0 dodajemy reguły:
  oraz zapisujemy je w pliku /etc/iptables.up.rules poleceniem ipatables-save > /etc/iptables.up.rules
  
  Następnie dodajemy wpis post-up iptables-restore < /etc/iptables.up.rules do pliku /etc/network/interfaces
+ 
+#### Dodanie adresów DNS w PC1 i PC2
+Aby tego dokonać edytujemy plik /etc/resolv.conf aby zawierał wpis: nameserver 1.1.1.1
+
+#### TEST
+
+
+* Ping google.com z PC0
