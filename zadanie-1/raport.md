@@ -18,6 +18,8 @@ Aby to zrobić edytujemy plik /etc/network/interfaces w następujący sposób:
 ##### PC0
 ![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC0.PNG "PC0")
 
+W PC0 włączamy także forwardowanie pakietów. W tym celu musimy edytować plik /etc/sysctl.d/99-sysctl.conf i odkomentować w nim linijkę z następującym wpisem: net.ipv4.ip_forward=1
+
 ##### PC1
 ![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/ipConfigPC1.PNG "PC1")
 
