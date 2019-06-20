@@ -1,3 +1,4 @@
+#### Schemat rozwiązania
 ![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-1/zadanie1.png "Rysunek")
 
 #### Ustalenie maski
