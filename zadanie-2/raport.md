@@ -124,6 +124,8 @@ W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowie
  
  Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[201 | 202 | 203 | 204].1
  
+ Dla urządzeń połączonych przez WIFI również dodajemy wpis: up ip rotue add default via 188.156.221.1
+ 
 #### Forwarding
  Dla wszystkich routerów należy także włączyć forwarding odkomentowując wpis: net.ipv4.ip_forward=1 w pliku /etc/sysctl.d/99-sysctl.conf
  
