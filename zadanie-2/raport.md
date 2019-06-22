@@ -39,6 +39,9 @@
 #### Konfiguracja interfejsów sieciowych
 Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
 * Router główny:
+  * enp0s8: 
+      * address 188.156.221.1
+      * netmask 255.255.255.224
   * enp0s9: 
     * address 188.156.220.225
     * netmask 255.255.255.248
