@@ -56,7 +56,7 @@ Ustawiamy adresy ip, maski podsieci oraz routing za pomocą edytowania pliku /et
 * Router Kondygnacji 0:
   * enp0s3: 
     * address 188.156.220.226
-    * netmask 255.255.255.224
+    * netmask 255.255.255.248
     * up ip rotue add default via 188.156.220.225
   * enp0s8: 
     * address 10.0.9.1
@@ -124,6 +124,14 @@ W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowie
  
  Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[201 | 202 | 203 | 204].1
  
- #### Forwarding
+#### Forwarding
  Dla wszystkich routerów należy także włączyć forwarding odkomentowując wpis: net.ipv4.ip_forward=1 w pliku /etc/sysctl.d/99-sysctl.conf
+ 
+#### Dodanie reguły MESQUERADE dla każdego routera
+Aby tego dokonać wprowadzamy następujące polecenia w urządzeniach:
+* Router Główny:
+  * iptables -t nat -A POSTROUTING -s 188.156.220.224/29 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 1188.156.220.232/29 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 188.156.220.240/29 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 188.156.221.0/22 -o enp0s3 -j MASQUERADE
 
