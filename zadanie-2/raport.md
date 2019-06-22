@@ -115,4 +115,7 @@ Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
     * netmask 255.255.255.192
 
  W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[201 | 202 | 203 | 204].2 - 10.0.[201 | 202 | 203 | 204].62
+ 
+ #### Forwarding
+ Dla wszystkich routerów należy także włączyć forwarding odkomentowując wpis: net.ipv4.ip_forward=1 w pliku /etc/sysctl.d/99-sysctl.conf
 
