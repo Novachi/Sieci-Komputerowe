@@ -134,4 +134,21 @@ Aby tego dokonać wprowadzamy następujące polecenia w urządzeniach:
   * iptables -t nat -A POSTROUTING -s 1188.156.220.232/29 -o enp0s3 -j MASQUERADE
   * iptables -t nat -A POSTROUTING -s 188.156.220.240/29 -o enp0s3 -j MASQUERADE
   * iptables -t nat -A POSTROUTING -s 188.156.221.0/22 -o enp0s3 -j MASQUERADE
+* Router Kondygnacji 0:
+  * iptables -t nat -A POSTROUTING -s 10.0.9.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.13.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.14.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.17.0/26 -o enp0s3 -j MASQUERADE
+                                 
+* Router Kondygnacji 1:
+  * iptables -t nat -A POSTROUTING -s 10.0.115.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.116.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.117.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.122.0/26 -o enp0s3 -j MASQUERADE
+  
+* Router Kondygnacji 2:
+  * iptables -t nat -A POSTROUTING -s 10.0.201.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.202.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.203.0/26 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 10.0.204.0/26 -o enp0s3 -j MASQUERADE
 
