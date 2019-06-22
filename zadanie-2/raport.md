@@ -40,24 +40,26 @@
 Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
 * Router główny:
   * enp0s8: 
-      * address 188.156.221.1
-      * netmask 255.255.255.224
+    * address 188.156.221.1
+    * netmask 255.255.255.224
   * enp0s9: 
-    * address 188.156.220.225
+    * address 188.156.220.241
     * netmask 255.255.255.248
-
   * enp0s10: 
     * address 188.156.220.233
     * netmask 255.255.255.248
-
   * enp0s11: 
-    * address 188.156.220.240
+    * address 188.156.220.225
     * netmask 255.255.255.248
+    
 
 * Router Kondygnacji 0:
+  * enp0s3: 
+    * address 188.156.220.226
+    * netmask 255.255.255.224
   * enp0s8: 
-      * address 10.0.9.1
-      * netmask 255.255.255.192
+    * address 10.0.9.1
+    * netmask 255.255.255.192
   * enp0s9: 
     * address 10.0.13.1
     * netmask 255.255.255.192
@@ -73,9 +75,12 @@ Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
  W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[9 | 13 | 14 | 17].2 - 10.0.[9 | 13 | 14 | 17].62
  
 * Router Kondygnacji 1:
+  * enp0s3:
+    * address 188.156.220.234
+    * netmask 255.255.255.248
   * enp0s8: 
-      * address 10.0.115.1
-      * netmask 255.255.255.192
+    * address 10.0.115.1
+    * netmask 255.255.255.192
   * enp0s9: 
     * address 10.0.116.1
     * netmask 255.255.255.192
@@ -91,9 +96,12 @@ Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
  W salach podłączonych do routera kondygnacji 1 adresy przydzieli DHCP. Odpowiednio: 10.0.[115 | 116 | 117 | 122].2 - 10.0.[115 | 116 | 117 | 122].62
 
 * Router Kondygnacji 2:
+  * enp0s3:
+    * address 188.156.220.242
+    * netmask 255.255.255.248
   * enp0s8: 
-      * address 10.0.201.1
-      * netmask 255.255.255.192
+    * address 10.0.201.1
+    * netmask 255.255.255.192
   * enp0s9: 
     * address 10.0.202.1
     * netmask 255.255.255.192
