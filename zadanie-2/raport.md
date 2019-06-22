@@ -70,6 +70,7 @@ Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
     * address 10.0.17.1
     * netmask 255.255.255.192
  
+ W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[9 | 13 | 14 | 17].2 - 10.0.[9 | 13 | 14 | 17].62
  
 * Router Kondygnacji 1:
   * enp0s8: 
@@ -86,7 +87,8 @@ Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
   * enp0s11: 
     * address 10.0.122.1
     * netmask 255.255.255.192
-    
+
+ W salach podłączonych do routera kondygnacji 1 adresy przydzieli DHCP. Odpowiednio: 10.0.[115 | 116 | 117 | 122].2 - 10.0.[115 | 116 | 117 | 122].62
 
 * Router Kondygnacji 2:
   * enp0s8: 
@@ -103,4 +105,6 @@ Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
   * enp0s11: 
     * address 10.0.204.1
     * netmask 255.255.255.192
+
+ W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[201 | 202 | 203 | 204].2 - 10.0.[201 | 202 | 203 | 204].62
 
