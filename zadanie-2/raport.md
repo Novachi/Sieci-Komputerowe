@@ -40,14 +40,14 @@
 Ustawiamy adresy ip i maski podsieci w /etc/network/interfaces
 * Router główny:
  * enp0s9: 
-   address 188.156.220.225
-   netmask 255.255.255.248
+   * address 188.156.220.225
+   * netmask 255.255.255.248
    
  * enp0s10: 
-   address 188.156.220.233
-   netmask 255.255.255.248
+   * address 188.156.220.233
+   * netmask 255.255.255.248
    
  * enp0s11: 
-   address 188.156.220.240
-   netmask 255.255.255.248
+   * address 188.156.220.240
+   * netmask 255.255.255.248
 
