@@ -1,5 +1,5 @@
 #### Schemat rozwiązania
-![alt text](https://github.com/Novachi/Sieci-Komputerowe/edit/master/zadanie-2/zadanie-2_diagram.PNG "Rysunek")
+![alt text](https://github.com/Novachi/Sieci-Komputerowe/blob/master/zadanie-2/zadanie-2_diagram.png "Rysunek")
 
 #### Określenie masek podsieci dla poszczególnych elementów modelu
 * Każdy z routerów na danej kondygnacji potrzebuje możliwości posiadania co najmniej 4 hostów więc maska 255.255.255.248 (/29 - 6 możliwych hostów)
