@@ -152,3 +152,6 @@ Aby tego dokonać wprowadzamy następujące polecenia w urządzeniach:
   * iptables -t nat -A POSTROUTING -s 10.0.203.0/26 -o enp0s3 -j MASQUERADE
   * iptables -t nat -A POSTROUTING -s 10.0.204.0/26 -o enp0s3 -j MASQUERADE
 
+Następnie w celu zapisania używamy: ipatables-save > /etc/iptables.up.rules
+
+Na końcu dodajemy do pliku /etc/network/interfaces wpis: post-up iptables-restore < /etc/iptables.up.rules dzięki któremu załadujemy zapisane reguły przy starcie.
