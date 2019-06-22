@@ -74,7 +74,7 @@ Ustawiamy adresy ip, maski podsieci oraz routing za pomocą edytowania pliku /et
  
 W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[9 | 13 | 14 | 17].2 - 10.0.[9 | 13 | 14 | 17].62
  
-Dodajemy również routing: up ip rotue add default via 10.0.[9 | 13 | 14 | 17].1
+Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[9 | 13 | 14 | 17].1
  
 * Router Kondygnacji 1:
   * enp0s3:
@@ -98,7 +98,7 @@ Dodajemy również routing: up ip rotue add default via 10.0.[9 | 13 | 14 | 17].
 
 W salach podłączonych do routera kondygnacji 1 adresy przydzieli DHCP. Odpowiednio: 10.0.[115 | 116 | 117 | 122].2 - 10.0.[115 | 116 | 117 | 122].62
  
-Dodajemy również routing: up ip rotue add default via 10.0.[115 | 116 | 117 | 122].1
+Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[115 | 116 | 117 | 122].1
 
 * Router Kondygnacji 2:
   * enp0s3:
@@ -122,7 +122,7 @@ Dodajemy również routing: up ip rotue add default via 10.0.[115 | 116 | 117 | 
 
 W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[201 | 202 | 203 | 204].2 - 10.0.[201 | 202 | 203 | 204].62
  
- Dodajemy również routing: up ip rotue add default via 10.0.[201 | 202 | 203 | 204].1
+ Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[201 | 202 | 203 | 204].1
  
  #### Forwarding
  Dla wszystkich routerów należy także włączyć forwarding odkomentowując wpis: net.ipv4.ip_forward=1 w pliku /etc/sysctl.d/99-sysctl.conf
