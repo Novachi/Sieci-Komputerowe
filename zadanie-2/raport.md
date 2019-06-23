@@ -16,7 +16,7 @@
   * Kondygnacja 0: 188.156.220.224/29
   * Kondygnacja 1: 188.156.220.232/29
   * Kondygnacja 2: 188.156.220.240/29
-  * Wifi: 188.156.221.0/27
+  * Wifi: 188.156.221.0/22
 
 * Router kondygnacji 0:
   * Sala 009: 10.0.9.0/26
