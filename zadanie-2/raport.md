@@ -154,22 +154,23 @@ Na końcu dodajemy do pliku /etc/network/interfaces wpis: post-up iptables-resto
 #### Instalacja i konfiguracja serwera dhcp, ustawienie dns'ów oraz wpisanie routingu dla sal i urządzeń wifi
 Na koniec dla każdego z routerów należy zainstalować serwer dhpc, aby umożliwić dynamiczne przydzielanie adresów hostom w sieciach. Chcemy także ustawić dns dla każedgo z routerów. W tym celu musimy edytować pliki /etc/default/isc-dhcp-server oraz /etc/dhcp/dhcpd.conf po uprzednim zainstalowaniu dhcp-server za pomocą polecenia sudo apt-get install isc-dhcp-server.
 
+
+W routerze głównym konfigurujemy dhcp-server tylko dla urządzeń podłączanych przez wifi
 * Router główny
-  * Dla Wifi
-    * W /etc/default/isc-dhcp-server:
-      * odkomentowujemy ścieżkę do pliku DHCPDv4_CONF
-      * dopisujemy także interfejs rozgłaszający wifi INTERFACESv4="enp0s10"
-    * W /etc/dhcp/dhcpd.conf:
-      * subnet 188.156.221.0 netmask 255.255.252.0 {
-      
-          range 188.156.221.2 188.156.224.254;
-          
-          option routers 188.156.221.1;
-          
-          option domain-name-servers 1.1.1.1, 1.0.0.1;
-          
-        }
-      * systemctl restart isc-dhcp-server
+  * W /etc/default/isc-dhcp-server:
+    * odkomentowujemy ścieżkę do pliku DHCPDv4_CONF
+    * dopisujemy także interfejs rozgłaszający wifi INTERFACESv4="enp0s10"
+  * W /etc/dhcp/dhcpd.conf:
+    * subnet 188.156.221.0 netmask 255.255.252.0 {
+
+        range 188.156.221.2 188.156.224.254;
+
+        option routers 188.156.221.1;
+
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
+
+      }
+    * systemctl restart isc-dhcp-server
 
 W routerach kondygnacji należy skonfigurować w dhcp-server subnet dla każdej sali z osobna
 * Router Kondygnacji 0:
