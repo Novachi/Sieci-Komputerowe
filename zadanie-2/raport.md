@@ -133,7 +133,7 @@ W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowie
 Aby tego dokonać wprowadzamy następujące polecenia w urządzeniach:
 * Router Główny:
   * iptables -t nat -A POSTROUTING -s 188.156.220.224/29 -o enp0s3 -j MASQUERADE
-  * iptables -t nat -A POSTROUTING -s 1188.156.220.232/29 -o enp0s3 -j MASQUERADE
+  * iptables -t nat -A POSTROUTING -s 188.156.220.232/29 -o enp0s3 -j MASQUERADE
   * iptables -t nat -A POSTROUTING -s 188.156.220.240/29 -o enp0s3 -j MASQUERADE
   * iptables -t nat -A POSTROUTING -s 188.156.221.0/22 -o enp0s3 -j MASQUERADE
 * Router Kondygnacji 0:
@@ -157,3 +157,25 @@ Aby tego dokonać wprowadzamy następujące polecenia w urządzeniach:
 Następnie w celu zapisania używamy: ipatables-save > /etc/iptables.up.rules
 
 Na końcu dodajemy do pliku /etc/network/interfaces wpis: post-up iptables-restore < /etc/iptables.up.rules dzięki któremu załadujemy zapisane reguły przy starcie.
+
+
+#### Instalacja i konfiguracja serwera dhcp oraz ustawienie dns'ów
+Na koniec dla każdego z routerów należy zainstalować serwer dhpc, aby umożliwić dynamiczne przydzielanie adresów hostom w sieciach. Chcemy także ustawić dns dla każedgo z routerów. W tym celu musimy edytować pliki /etc/default/isc-dhcp-server oraz /etc/dhcp/dhcpd.conf po uprzednim zainstalowaniu dhcp-server za pomocą polecenia sudo apt-get install isc-dhcp-server.
+
+* Router główny
+  * Dla Wifi
+    * W /etc/default/isc-dhcp-server:
+      * odkomentowujemy ścieżkę do pliku DHCPDv4_CONF
+      * dopisujemy także interfejs rozgłaszający wifi INTERFACESv4="enp0s10"
+    * W /etc/dhcp/dhcpd.conf:
+      * subnet 188.156.221.0 netmask 255.255.252.0 {
+      
+          range 188.156.221.2 188.156.224.254;
+          
+          option routers 188.156.221.1;
+          
+          option domain-name-servers 1.1.1.1, 1.0.0.1;
+          
+        }
+      * systemctl restart isc-dhcp-server
+
