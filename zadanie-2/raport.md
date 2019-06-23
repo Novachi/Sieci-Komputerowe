@@ -74,8 +74,6 @@ Ustawiamy adresy ip, maski podsieci oraz routing za pomocą edytowania pliku /et
  
 W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[9 | 13 | 14 | 17].2 - 10.0.[9 | 13 | 14 | 17].62
  
-Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[9 | 13 | 14 | 17].1
- 
 * Router Kondygnacji 1:
   * enp0s3:
     * address 188.156.220.234
@@ -97,8 +95,6 @@ Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[9 | 1
     * netmask 255.255.255.192
 
 W salach podłączonych do routera kondygnacji 1 adresy przydzieli DHCP. Odpowiednio: 10.0.[115 | 116 | 117 | 122].2 - 10.0.[115 | 116 | 117 | 122].62
- 
-Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[115 | 116 | 117 | 122].1
 
 * Router Kondygnacji 2:
   * enp0s3:
@@ -121,11 +117,7 @@ Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[115 |
     * netmask 255.255.255.192
 
 W salach podłączonych do routera kondygnacji 0 adresy przydzieli DHCP. Odpowiednio: 10.0.[201 | 202 | 203 | 204].2 - 10.0.[201 | 202 | 203 | 204].62
- 
- Dodajemy również routing, odpowiednio: up ip rotue add default via 10.0.[201 | 202 | 203 | 204].1
- 
- Dla urządzeń połączonych przez WIFI również dodajemy wpis: up ip rotue add default via 188.156.221.1
- 
+
 #### Forwarding
  Dla wszystkich routerów należy także włączyć forwarding odkomentowując wpis: net.ipv4.ip_forward=1 w pliku /etc/sysctl.d/99-sysctl.conf
  
@@ -159,7 +151,7 @@ Następnie w celu zapisania używamy: ipatables-save > /etc/iptables.up.rules
 Na końcu dodajemy do pliku /etc/network/interfaces wpis: post-up iptables-restore < /etc/iptables.up.rules dzięki któremu załadujemy zapisane reguły przy starcie.
 
 
-#### Instalacja i konfiguracja serwera dhcp oraz ustawienie dns'ów
+#### Instalacja i konfiguracja serwera dhcp, ustawienie dns'ów oraz wpisanie routingu dla sal i urządzeń wifi
 Na koniec dla każdego z routerów należy zainstalować serwer dhpc, aby umożliwić dynamiczne przydzielanie adresów hostom w sieciach. Chcemy także ustawić dns dla każedgo z routerów. W tym celu musimy edytować pliki /etc/default/isc-dhcp-server oraz /etc/dhcp/dhcpd.conf po uprzednim zainstalowaniu dhcp-server za pomocą polecenia sudo apt-get install isc-dhcp-server.
 
 * Router główny
@@ -178,4 +170,53 @@ Na koniec dla każdego z routerów należy zainstalować serwer dhpc, aby umożl
           
         }
       * systemctl restart isc-dhcp-server
+
+W routerach kondygnacji należy skonfigurować w dhcp-server subnet dla każdej sali z osobna
+* Router Kondygnacji 0:
+  * W /etc/default/isc-dhcp-server:
+    * odkomentowujemy ścieżkę do pliku DHCPDv4_CONF
+    * dopisujemy także interfejs rozgłaszający poszczególne sieci INTERFACESv4="enp0s8 enp0s9 enp0s10 enp0s11"
+  * W /etc/dhcp/dhcpd.conf:
+    * subnet 10.0.[9|13|14|17].0 netmask 255.255.255.192 {
+
+        range 10.0.[9|13|14|17].2 10.0.[9|13|14|17].62;
+
+        option routers 10.0.[9|13|14|17].1;
+
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
+
+      }
+    * systemctl restart isc-dhcp-server
+    
+* Router Kondygnacji 1:
+  * W /etc/default/isc-dhcp-server:
+    * odkomentowujemy ścieżkę do pliku DHCPDv4_CONF
+    * dopisujemy także interfejs rozgłaszający poszczególne sieci INTERFACESv4="enp0s8 enp0s9 enp0s10 enp0s11"
+  * W /etc/dhcp/dhcpd.conf:
+    * subnet 10.0.[115|116|117|122].0 netmask 255.255.255.192 {
+
+        range 10.0.[115|116|117|122].2 10.0.[115|116|117|122].62;
+
+        option routers 10.0.[115|116|117|122].1;
+
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
+
+      }
+    * systemctl restart isc-dhcp-server
+    
+* Router Kondygnacji 2:
+  * W /etc/default/isc-dhcp-server:
+    * odkomentowujemy ścieżkę do pliku DHCPDv4_CONF
+    * dopisujemy także interfejs rozgłaszający poszczególne sieci INTERFACESv4="enp0s8 enp0s9 enp0s10 enp0s11"
+  * W /etc/dhcp/dhcpd.conf:
+    * subnet 10.0.[201|202|203|204].0 netmask 255.255.255.192 {
+
+        range 10.0.[201|202|203|204].2 10.0.[201|202|203|204].62;
+
+        option routers 10.0.[201|202|203|204].1;
+
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
+
+      }
+    * systemctl restart isc-dhcp-server
 
